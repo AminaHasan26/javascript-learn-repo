@@ -1,0 +1,33 @@
+// ❌ Mistake 1: Using = instead of ===
+if (status = "passed") { }  // assigns "passed" to status — always true!
+if (status === "passed") { } // ✅ correct comparison
+
+// ❌ Mistake 2: Using == instead of ===
+if (count == "0") { }  // true even though types differ!
+if (count === 0) { }   // ✅ strict and safe
+
+// ❌ Mistake 3: Missing curly braces
+if (isLoggedIn)
+    console.log("Welcome");
+    console.log("Go to dashboard"); // ❌ this runs ALWAYS, not just when logged in!
+
+// ✅ Always use curly braces
+if (isLoggedIn) {
+    console.log("Welcome");
+    console.log("Go to dashboard");
+}
+
+// ❌ Mistake 4: Confusing && and ||
+// "Show error if username OR password is empty"
+if (username === "" && password === "") { } // ❌ only catches when BOTH empty
+if (username === "" || password === "") { } // ✅ catches when EITHER is empty
+
+// ❌ Mistake 5: Forgetting that 0, "", null are falsy
+let errorCount = 0;
+if (errorCount) {
+    console.log("Has errors"); // won't run — 0 is falsy!
+}
+// ✅ Be explicit
+if (errorCount > 0) {
+    console.log("Has errors");
+}

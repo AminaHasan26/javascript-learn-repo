@@ -21,8 +21,8 @@ for (let i = 0; i < testPasswords.length; i++) {
     let password = testPasswords[i];
     
     if (password.length < 8) {
-        console.log(`❌ "${password}" — Too short (${password.length} chars)`);
+        console.log(` "${password}" — Too short (${password.length} chars)`);
     } else {
-        console.log(`✅ "${password}" — Valid length`);
+        console.log(`"${password}" — Valid length`);
     }
 }

@@ -1,3 +1,35 @@
+let url = "https://myapp.com/login";
+let buttonText = "Submit";
+let errorMsg = "Invalid username or password";
+let emptyString = ""; // valid string — just empty
+
+/**
+ * Think of methods as tools that come built-in with every string.
+You use them like this: yourString.methodName()
+ */
+
+//.length
+
+let password = "MyP@ssword123";
+console.log(password.length); // 13
+
+// Real automation use:
+// "Does the error message appear when password is less than 8 characters?"
+let shortPassword = "abc";
+console.log(shortPassword.length < 8); // true → validation should trigger
+
+//Method 2 — .toUpperCase() and .toLowerCase()
+
+// Pages sometimes show text in different cases
+// Comparing in lowercase avoids case mismatch bugs
+let expectedTitle = "welcome to myapp";
+let actualTitle = "Welcome To MyApp";
+
+console.log(actualTitle.toLowerCase() === expectedTitle); // true ✅
+// Without toLowerCase(), "Welcome To MyApp" === "welcome to myapp" → false ❌
+
+
+
 let appName = "MyBankingApp";
 let appName2 = "My Banking App"
 let appName3 = " My Banking App "
@@ -5,7 +37,36 @@ let appName3 = " My Banking App "
 console.log(appName.length);          // 12 — how many characters
 console.log(appName.toUpperCase());   // MYBANKINGAPP
 console.log(appName.toLowerCase());   // mybankingapp
+
+//Method 4 — .includes()
+//Checks if a string contains another string. Returns true or false.
 console.log(appName.includes("Bank")); // true — does it contain "Bank"?
+let errorMessage = "Invalid username or password";
+console.log(errorMessage.includes("Invalid"));  // true
+console.log(errorMessage.includes("password")); // true
+console.log(errorMessage.includes("email"));    // false
+//Real automation use:
+// Verify error message contains expected text
+let actualError = "Error: Invalid username or password. Please try again.";
+
+// We don't check the FULL string — just that key text is present
+console.log(actualError.includes("Invalid username or password")); // true ✅
+
+//Method 5 — .startsWith() and .endsWith()
+//Checks how a string begins or ends.
+
+let pageUrl = "https://myapp.com/dashboard";
+
+console.log(pageUrl.startsWith("https")); // true  — secure connection ✅
+console.log(pageUrl.startsWith("http:")); // false
+console.log(pageUrl.endsWith("dashboard")); // true
+console.log(pageUrl.endsWith("login"));     // false
+
+//Real automation use:
+// Verify URL is secure (starts with https)
+let currentUrl = "https://mybank.com/account";
+console.log(currentUrl.startsWith("https")); // true ✅ — security check passed
+
 console.log(appName.charAt(5)); //Returns the character at the given index position. Index starts at 0.
 console.log(appName.charCodeAt(5));//Returns the UTF-16 character code (number) of the character at the given index.
 //Useful for comparing characters or encoding operations. 'A' = 65, 'a' = 97.
@@ -69,6 +130,15 @@ Only removes leading and trailing whitespace — not spaces in the middle.
  */
 
 console.log(appName3.trim());
+
+//Real automation use:
+// Web pages often return text with extra whitespace
+// Always trim before comparing
+let textFromPage = "  Submit  ";
+let expected = "Submit";
+
+console.log(textFromPage === expected);               // false ❌ — spaces cause mismatch
+console.log(textFromPage.trim() === expected);        // true  ✅
 
 /**
  * trimStart()

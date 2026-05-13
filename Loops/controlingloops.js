@@ -27,3 +27,19 @@ for (let testCase of testCases) {
     }
     console.log(`Running: ${testCase}`);
 }
+
+//break vs continue — Side by Side
+
+// BREAK — stops the whole loop
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) break;
+    console.log(i);
+}
+// Output: 1, 2
+
+// CONTINUE — skips just this iteration
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) continue;
+    console.log(i);
+}
+// Output: 1, 2, 4, 5

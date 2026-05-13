@@ -25,3 +25,5 @@ console.log(status);
 let itemCount = 0;
 let cartMessage = itemCount > 0 ? `${itemCount} items in cart` : "Cart is empty";
 console.log(cartMessage);
+
+//Rule: Use ternary for simple one-liners. Use if/else for anything complex.

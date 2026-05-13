@@ -1,0 +1,19 @@
+// Comparison operators
+===   // strictly equal
+!==   // not equal
+>     // greater than
+<     // less than
+>=    // greater than or equal
+<=    // less than or equal
+
+// Logical operators
+&&    // AND — both must be true
+||    // OR  — at least one must be true
+!     // NOT — flips true/false
+
+// Structures
+if (condition) { }
+if (condition) { } else { }
+if (condition) { } else if (other) { } else { }
+condition ? "if true" : "if false"   // ternary
+switch (value) { case x: break; }

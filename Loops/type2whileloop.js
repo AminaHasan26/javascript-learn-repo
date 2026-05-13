@@ -26,3 +26,11 @@ while (attempts < maxAttempts && !loginSuccess) {
 if (!loginSuccess) {
     console.log(" Account locked after 3 failed attempts");
 }
+//Always make sure your loop condition will eventually become false.
+
+/**
+ * Real-world analogy:
+An infinite loop is like telling someone "keep knocking on the door until 
+someone answers" but the house is empty. 
+They'll knock forever unless you add "or until you've knocked 10 times."
+ */

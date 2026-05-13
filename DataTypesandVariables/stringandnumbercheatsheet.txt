@@ -1,0 +1,28 @@
+Summary — Strings and Numbers Cheat Sheet
+
+// STRINGS
+str.length          // count characters
+str.toUpperCase()   // ALL CAPS
+str.toLowerCase()   // all lowercase
+str.trim()          // remove edge spaces
+str.includes("x")   // contains "x"? → boolean
+str.startsWith("x") // begins with "x"? → boolean
+str.endsWith("x")   // ends with "x"? → boolean
+str.replace("a","b")// replace first match
+str.replaceAll("a","b") // replace all
+str.split(",")      // split into array
+str.indexOf("x")    // position of "x"
+str.slice(2,5)      // cut from pos 2 to 5
+
+// NUMBERS
+Math.round(n)       // round normally
+Math.ceil(n)        // round up
+Math.floor(n)       // round down
+Math.random()       // 0 to 1 random
+Math.max(a,b,c)     // largest value
+Math.min(a,b,c)     // smallest value
+Number("42")        // string → number
+parseInt("42.9")    // → 42
+parseFloat("42.9")  // → 42.9
+n.toFixed(2)        // 2 decimal places (returns string!)
+isNaN(x)            // is this NOT a number?
