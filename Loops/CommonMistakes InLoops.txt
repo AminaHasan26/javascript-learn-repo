@@ -1,0 +1,30 @@
+// Mistake 1: Off-by-one error
+// "I want to run 5 tests numbered 1 to 5"
+for (let i = 0; i < 5; i++) {
+    console.log(`Test ${i}`); // Test 0, 1, 2, 3, 4 ← starts at 0!
+}
+// Fix
+for (let i = 1; i <= 5; i++) {
+    console.log(`Test ${i}`); // Test 1, 2, 3, 4, 5 
+}
+
+// Mistake 2: Modifying array while looping through it
+// This causes unpredictable behavior — avoid
+
+// Mistake 3: Using wrong loop type
+// Using for...in on an array
+let items = ["a", "b", "c"];
+for (let i in items) {
+    console.log(i); // prints 0, 1, 2 (indexes!) not the values!
+}
+// Use for...of for arrays
+for (let item of items) {
+    console.log(item); // prints a, b, c 
+}
+
+//  Mistake 4: Forgetting to increment in while loop
+let count = 0;
+while (count < 3) {
+    console.log(count);
+    // forgot count++ — infinite loop! 
+}

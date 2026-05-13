@@ -1,0 +1,18 @@
+// FOR — known number of iterations
+for (let i = 0; i < n; i++) { }
+
+// WHILE — unknown iterations, check first
+while (condition) { }
+
+// DO...WHILE — unknown iterations, run once first
+do { } while (condition);
+
+// FOR...OF — loop through array items ✅ most used
+for (let item of array) { }
+
+// FOR...IN — loop through object keys
+for (let key in object) { }
+
+// CONTROL
+break;    // exit loop immediately
+continue; // skip to next iteration

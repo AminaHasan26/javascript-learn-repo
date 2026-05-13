@@ -221,5 +221,16 @@ Avoid undefined by always initializing variables with a value.
 Use null to explicitly indicate "no value" rather than leaving things undefined.
 
 */
+//Conversion Practice:
+/**
+ * Convert both to numbers and calculate the total price. Print it using a template literal like:
+
+"Total: 1199.96"
+ */
+let priceText = "299.99";
+let quantityText = "4";
+
+let total = Number(priceText)* Number(quantityText);
+console.log("Total: " +total);
 
 

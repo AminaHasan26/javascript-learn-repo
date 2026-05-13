@@ -1,0 +1,43 @@
+🏋️ Practice — Loops
+Challenge 1 — Basic Counter:
+Using a for loop, print:
+Test run 1 of 5
+Test run 2 of 5
+Test run 3 of 5
+Test run 4 of 5
+Test run 5 of 5
+All tests complete!
+
+Challenge 2 — Email Validator:
+javascriptlet emailList = [
+    "priya@test.com",
+    "invalid-email",
+    "admin@company.com",
+    "",
+    "noatsign.com",
+    "manager@qa.org"
+];
+Loop through every email and print whether each is valid or invalid.
+An email is valid if it: is not empty AND includes "@" AND includes "."
+
+Challenge 3 — Find and Stop:
+javascriptlet productPrices = [299, 149, 599, 0, 450, 199];
+Loop through prices. If you find a price of 0, print:
+"🚨 Data error — zero price found at position X"
+Then stop the loop. If no zero found, print "✅ All prices valid"
+
+Challenge 4 — Cross Browser Matrix:
+javascriptlet browsers = ["Chrome", "Firefox", "Edge"];
+let testCases = ["Login", "Search", "Checkout"];
+Using nested loops, print every combination:
+Chrome   | Login
+Chrome   | Search
+Chrome   | Checkout
+Firefox  | Login
+...and so on
+
+Challenge 5 — Test Summary Builder:
+javascriptlet results = ["pass","pass","fail","pass","skip","fail","pass","skip","pass"];
+Loop through and count how many passed, failed, and skipped.
+Then print a full summary like the example above.
+Bonus: Calculate and print the pass percentage (exclude skipped from total).
