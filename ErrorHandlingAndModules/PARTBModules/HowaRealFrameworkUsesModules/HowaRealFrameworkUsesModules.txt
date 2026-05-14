@@ -1,0 +1,25 @@
+How a Real Framework Uses Modules
+Here is the complete picture — how files connect in a professional automation framework:
+
+my-automation-framework/
+│
+├── config/
+│   └── config.js          ← environment URLs, timeouts, settings
+│
+├── data/
+│   └── users.js           ← test user credentials
+│   └── products.js        ← test product data
+│
+├── helpers/
+│   └── testUtils.js       ← formatDuration, getPassRate, generateId
+│   └── assertionHelper.js ← custom assertion wrappers
+│
+├── pages/
+│   └── BasePage.js        ← shared page methods
+│   └── LoginPage.js       ← login page object
+│   └── DashboardPage.js   ← dashboard page object
+│   └── CheckoutPage.js    ← checkout page object
+│
+└── tests/
+    └── loginTest.spec.js  ← imports from pages + data + helpers
+    └── checkoutTest.spec.js

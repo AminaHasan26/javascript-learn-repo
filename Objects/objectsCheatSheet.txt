@@ -1,0 +1,34 @@
+// CREATE
+let obj = { key: "value", count: 0 };
+
+// ACCESS
+obj.key          // dot notation
+obj["key"]       // bracket notation
+
+// MODIFY
+obj.key = "new"; // update
+obj.newKey = x;  // add
+delete obj.key;  // remove
+
+// CHECK
+"key" in obj                  // exists?
+obj.key !== undefined         // exists?
+obj?.nested?.deep             // safe access
+
+// COPY / MERGE
+let copy = { ...obj };
+let merged = { ...obj1, ...obj2 };
+
+// DESTRUCTURE
+let { key, other = "default" } = obj;
+let { key: alias } = obj;
+
+// LOOP
+Object.keys(obj)              // array of keys
+Object.values(obj)            // array of values
+Object.entries(obj)           // array of [key, value] pairs
+
+// METHOD SHORTHAND
+let obj = {
+    greet() { return "hello"; }
+};

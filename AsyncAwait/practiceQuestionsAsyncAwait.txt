@@ -1,0 +1,77 @@
+//
+//Practice — Async/Await
+//
+Use this helper in all challenges:
+
+function simulateAction(ms, message, returnValue = null) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log(message);
+            resolve(returnValue);
+        }, ms);
+    });
+}
+
+
+Challenge 1 — Basic Async Flow:
+Write an async function runCheckoutTest() that simulates:
+
+Navigate to homepage (800ms)
+Search for product (600ms)
+Click product (400ms)
+Add to cart (500ms)
+Go to checkout (800ms)
+Fill delivery details (1000ms)
+Click place order (600ms)
+Verify order confirmation — returns "Order #ORD-7823 confirmed" (500ms)
+Print the order confirmation
+
+Wrap everything in try/catch/finally.
+
+Challenge 2 — Async Class:
+Build an async SearchPage class with:
+
+navigate() — 800ms
+enterSearchTerm(term) — 500ms — prints term
+clickSearch() — 300ms
+getResultCount() — 600ms — returns a number (simulate 47)
+verifyResultsVisible() — 400ms
+search(term) — calls enter + click in sequence
+
+Write an async test function that uses the class and prints the result count.
+
+Challenge 3 — Error Handling:
+Write an async function robustLogin(username, password) that:
+
+Simulates login attempt
+Has 40% chance of throwing an error: new Error("Network timeout")
+On error — retries up to 3 times
+Prints which attempt succeeded or prints final failure
+
+(Use Math.random() < 0.4 to simulate random failure)
+
+Challenge 4 — Parallel vs Sequential:
+Write two functions:
+
+runSequential(tests) — runs array of test names one by one, each takes 1000ms
+runParallel(tests) — runs all simultaneously with Promise.all
+
+javascriptlet tests = ["Login Test", "Search Test", "Checkout Test", "Payment Test"];
+Measure and print how long each approach takes.
+Print the speedup: "Parallel was Xs faster"
+
+Challenge 5 — Full Async Framework:
+Build a complete async test runner:
+javascriptlet testSuite = [
+    { name: "Login Test",    fn: loginTest,    timeout: 5000 },
+    { name: "Search Test",   fn: searchTest,   timeout: 3000 },
+    { name: "Checkout Test", fn: checkoutTest, timeout: 8000 },
+    { name: "Payment Test",  fn: paymentTest,  timeout: 6000 }
+];
+Where each fn is an async function that simulates its test.
+Write a runTestSuite(suite) function that:
+
+Runs each test in sequence
+Catches individual test failures without stopping the suite
+Tracks pass/fail/duration for each
+Prints a complete formatted report at the end

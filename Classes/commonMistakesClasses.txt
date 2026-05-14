@@ -1,0 +1,48 @@
+//Common Mistakes — Classes
+// ❌ Mistake 1: Forgetting 'new'
+let user = User("Priya", "admin"); // TypeError — must use 'new'
+let user = new User("Priya", "admin"); // ✅
+
+// ❌ Mistake 2: Forgetting super() in child class
+class LoginPage extends BasePage {
+    constructor(url) {
+        // forgot super()!
+        this.url = url; // ReferenceError — must call super first
+    }
+}
+// ✅ Fix
+class LoginPage extends BasePage {
+    constructor(url) {
+        super("Login Page", url); // call super FIRST always
+        this.url = url;
+    }
+}
+
+// ❌ Mistake 3: Calling static method on instance
+let utils = new TestUtils();
+utils.formatDuration(1200); // TypeError — static methods belong to class
+
+// ✅ Fix
+TestUtils.formatDuration(1200); // call on class directly
+
+// ❌ Mistake 4: Forgetting 'this' inside methods
+class Counter {
+    constructor() {
+        this.count = 0;
+    }
+    increment() {
+        count++; // ❌ ReferenceError — 'count' doesn't exist alone
+        this.count++; // ✅
+    }
+}
+
+// ❌ Mistake 5: Comma between methods — classes aren't objects!
+class MyClass {
+    method1() { },  // ❌ SyntaxError — no commas between methods!
+    method2() { }
+}
+// ✅ Fix — no commas
+class MyClass {
+    method1() { }
+    method2() { }
+}

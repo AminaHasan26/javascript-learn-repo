@@ -1,0 +1,65 @@
+ Practice — Functions
+Challenge 1 — Your First Helper Function:
+Write a function called printTestBanner that takes a suiteName parameter and prints:
+************************************
+   Running Suite: Regression Tests
+************************************
+
+Challenge 2 — Validator Functions:
+Write three separate arrow functions:
+
+isNotEmpty(value) → returns true if value is not empty
+isValidEmail(email) → returns true if email has @ and .
+isStrongPassword(password) → returns true if 8+ chars and includes @ or # or !
+
+Then write a fourth function validateForm(email, password) that uses all three and returns an appropriate message.
+
+Challenge 3 — Calculator Functions:
+Write these arrow functions:
+
+add(a, b) → returns sum
+subtract(a, b) → returns difference
+percentage(value, total) → returns percentage rounded to 1 decimal
+formatPrice(price) → returns price formatted as "₹1,299.00"
+
+Then use them to calculate:
+Cart Total    : ₹2,499.00
+Discount(10%) : ₹249.90
+Final Price   : ₹2,249.10
+
+Challenge 4 — Rewrite With Functions:
+Take this repetitive code and refactor it using functions:
+javascript// Repetitive — needs refactoring
+console.log("--- Test: Login ---");
+console.log("Status: PASS");
+console.log("Duration: 1200ms");
+console.log("Browser: Chrome");
+console.log("");
+
+console.log("--- Test: Checkout ---");
+console.log("Status: FAIL");
+console.log("Duration: 3400ms");
+console.log("Browser: Firefox");
+console.log("");
+
+console.log("--- Test: Search ---");
+console.log("Status: PASS");
+console.log("Duration: 900ms");
+console.log("Browser: Chrome");
+console.log("");
+Write a single function that accepts parameters and replace all repetition.
+
+Challenge 5 — The Tricky One:
+javascriptlet inventory = [
+    { product: "Laptop",  price: 45000, stock: 5  },
+    { product: "Mouse",   price: 999,   stock: 0  },
+    { product: "Keyboard",price: 2499,  stock: 12 },
+    { product: "Monitor", price: 18000, stock: 2  },
+    { product: "Webcam",  price: 3499,  stock: 0  }
+];
+Write a function printInventoryReport(inventory) that:
+
+Loops through all items
+Prints "IN STOCK" or "OUT OF STOCK" for each
+At the end prints total products, how many in stock, how many out of stock
+Bonus: prints the most expensive in-stock item

@@ -1,0 +1,28 @@
+// Common Mistakes — Modules
+
+// ❌ Mistake 1: Mixing export styles
+export default function myFunc() { }
+export default class MyClass { }  // TWO defaults — only one allowed per file!
+
+// ❌ Mistake 2: Wrong import for default vs named
+// If exported as: export default class LoginPage
+import { LoginPage } from "./LoginPage.js"; // ❌ curly braces wrong for default
+import LoginPage from "./LoginPage.js";     // ✅ no curly braces
+
+// If exported as: export class LoginPage
+import LoginPage from "./LoginPage.js";     // ❌ wrong — this expects default
+import { LoginPage } from "./LoginPage.js"; // ✅ curly braces for named
+
+// ❌ Mistake 3: Wrong file path
+import LoginPage from "./pages/loginpage.js"; // ❌ case sensitive!
+import LoginPage from "./pages/LoginPage.js"; // ✅
+
+// ❌ Mistake 4: Circular imports — A imports B, B imports A
+// File A imports from File B
+// File B imports from File A
+// → Causes strange undefined errors
+// Fix: extract shared code to a third file C
+
+// ❌ Mistake 5: Forgetting .js extension in ES modules
+import LoginPage from "./pages/LoginPage"; // ❌ may fail in Node.js
+import LoginPage from "./pages/LoginPage.js"; // ✅ always include extension

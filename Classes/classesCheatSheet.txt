@@ -1,0 +1,34 @@
+//Summary — Classes Cheat Sheet//
+
+// DEFINE
+class MyClass {
+    constructor(param) {
+        this.prop = param;     // instance property
+    }
+
+    instanceMethod() { }       // called on objects
+    static staticMethod() { }  // called on class itself
+
+    get computedProp() {       // getter — no ()
+        return this._value;
+    }
+    set computedProp(val) {    // setter — assignment syntax
+        this._value = val;
+    }
+}
+
+// INHERIT
+class Child extends Parent {
+    constructor(param) {
+        super(param);          // MUST call first
+        this.ownProp = "x";
+    }
+    ownMethod() { }
+}
+
+// USE
+let obj = new MyClass(value);  // create instance
+obj.instanceMethod();          // call instance method
+MyClass.staticMethod();        // call static method
+obj.computedProp;              // use getter
+obj.computedProp = value;      // use setter

@@ -1,0 +1,65 @@
+/*
+*Practice — Arrays
+*/
+
+Challenge 1 — Build and Modify:
+javascriptlet testSuite = ["Login", "Search", "Checkout"];
+
+Add "Payment" to the end
+Add "Homepage" to the beginning
+Remove the last test
+Remove the first test
+Print the final array and its length
+
+
+Challenge 2 — The Big Three:
+javascriptlet results = [
+    { name: "Login",    passed: true,  duration: 1100 },
+    { name: "Search",   passed: false, duration: 4200 },
+    { name: "Checkout", passed: true,  duration: 980  },
+    { name: "Payment",  passed: false, duration: 6100 },
+    { name: "Logout",   passed: true,  duration: 750  }
+];
+Using filter, map, and forEach:
+
+Filter only failed tests — print their names
+Map all results to "✅ PASS" or "❌ FAIL" strings
+Use forEach to print each with duration
+
+
+Challenge 3 — find, some, every:
+Using the results array above:
+
+Find the test named "Checkout" and print its duration
+Check if some tests failed — print result
+Check if every test passed — print result
+
+
+Challenge 4 — reduce:
+javascriptlet durations = [1100, 4200, 980, 6100, 750];
+Using reduce:
+
+Calculate total duration
+Calculate average duration
+Print both formatted nicely
+
+
+Challenge 5 — The Full Pipeline:
+javascriptlet allTests = [
+    { name: "Login",          status: "pass", duration: 1100, tag: "smoke"      },
+    { name: "Register",       status: "fail", duration: 2300, tag: "regression" },
+    { name: "Search",         status: "pass", duration: 980,  tag: "smoke"      },
+    { name: "Add to Cart",    status: "fail", duration: 4200, tag: "regression" },
+    { name: "Checkout",       status: "pass", duration: 1800, tag: "regression" },
+    { name: "Password Reset", status: "skip", duration: 0,    tag: "regression" },
+    { name: "Logout",         status: "pass", duration: 600,  tag: "smoke"      }
+];
+Write code that:
+
+Gets only smoke tests using filter
+Gets only failed tests and prints their names
+Calculates total run time using reduce (exclude skipped)
+Maps all tests to "PASS" / "FAIL" / "SKIP" strings
+Checks if all smoke tests passed using every
+Sorts all tests by duration (ascending)
+Prints a clean final summary

@@ -1,0 +1,64 @@
+//Practice — Objects
+
+Challenge 1 — Build a Test Case Object:
+Create an object called loginTestCase with these properties:
+
+id, name, description, priority, status, steps (array of strings), expectedResult
+
+Print each property using dot notation.
+Then update status to "pass" and add a duration property.
+
+Challenge 2 — Nested Config:
+Build a frameworkConfig object with:
+
+project (string)
+browser object with name, headless, viewport (object with width and height)
+environments object with dev, staging, prod URLs
+timeouts object with navigation, element, assertion
+
+Then write a function getConfig(env, browserName) that returns a merged config object for that environment and browser.
+
+Challenge 3 — Array of Objects Pipeline:
+javascriptlet users = [
+    { id: 1, name: "Priya",  role: "admin",   isActive: true,  loginCount: 45 },
+    { id: 2, name: "Rahul",  role: "viewer",  isActive: false, loginCount: 3  },
+    { id: 3, name: "Sneha",  role: "manager", isActive: true,  loginCount: 28 },
+    { id: 4, name: "Arjun",  role: "admin",   isActive: true,  loginCount: 67 },
+    { id: 5, name: "Meera",  role: "viewer",  isActive: false, loginCount: 0  }
+];
+Using array methods on this array of objects:
+
+Filter only active users
+Find the user with highest loginCount
+Map users to "Name (role)" strings
+Check if any user has loginCount of 0
+Get total loginCount using reduce
+
+
+Challenge 4 — Destructuring Practice:
+javascriptlet testResult = {
+    id: 101,
+    name: "Checkout Flow",
+    status: "fail",
+    duration: 4200,
+    error: "Element not found: #submit-btn",
+    browser: { name: "Firefox", version: "121" },
+    environment: "staging"
+};
+
+Destructure name, status, duration in one line
+Destructure browser.name as browserName
+Write a function printError({ name, error, browser: { name: browserName } }) that prints a formatted error message
+
+
+Challenge 5 — The Full Object System:
+Build a complete testDataManager object with:
+
+Properties: projectName, currentEnvironment, testResults (empty array)
+Method addResult(name, status, duration) — adds to testResults
+Method getPassRate() — returns percentage
+Method getFailed() — returns array of failed test names
+Method getSlowest() — returns the test with highest duration
+Method printReport() — prints a complete formatted summary
+
+Simulate adding 6 test results and call printReport().

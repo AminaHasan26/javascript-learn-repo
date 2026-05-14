@@ -1,0 +1,49 @@
+//Summary — Error Handling and Modules Cheat Sheet
+
+// ── ERROR HANDLING ──────────────────────────────
+
+// Try/Catch/Finally
+try {
+    await riskyOperation();
+} catch (error) {
+    console.log(error.name);    // error type
+    console.log(error.message); // what went wrong
+    console.log(error.stack);   // where it happened
+} finally {
+    cleanup(); // always runs
+}
+
+// Throw custom error
+throw new Error("Descriptive message here");
+
+// Custom error class
+class MyError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "MyError";
+    }
+}
+
+// Check error type
+if (error instanceof MyError) { }
+
+// ── MODULES ─────────────────────────────────────
+
+// CommonJS
+module.exports = { myFunc, MyClass };
+const { myFunc } = require("./myFile");
+
+// ES Modules — Named
+export function myFunc() { }
+export const VALUE = 42;
+import { myFunc, VALUE } from "./myFile.js";
+
+// ES Modules — Default
+export default class MyClass { }
+import MyClass from "./myFile.js";
+
+// ES Modules — Both
+import MyClass, { myFunc, VALUE } from "./myFile.js";
+
+// Import all
+import * as everything from "./myFile.js";

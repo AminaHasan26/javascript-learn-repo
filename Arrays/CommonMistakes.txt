@@ -1,0 +1,25 @@
+// ❌ Mistake 1: Accessing wrong index
+let items = ["a", "b", "c"];
+console.log(items[3]); // undefined — index 3 doesn't exist
+
+// ❌ Mistake 2: Sorting numbers without compare function
+let nums = [10, 2, 100, 8];
+nums.sort();
+console.log(nums); // [10, 100, 2, 8] ❌ wrong!
+nums.sort((a, b) => a - b);
+console.log(nums); // [2, 8, 10, 100] ✅
+
+// ❌ Mistake 3: splice vs slice confusion
+let arr = [1, 2, 3, 4, 5];
+arr.splice(1, 2);  // MODIFIES original — removes items
+let part = arr.slice(1, 3); // copies a section — original safe
+
+// ❌ Mistake 4: Expecting find() to return array
+let users = [{name: "Priya"}, {name: "Rahul"}];
+let result = users.find(u => u.name === "Priya");
+console.log(result.length); // undefined! find returns an OBJECT not array
+
+// ❌ Mistake 5: Forgetting map/filter return new arrays
+let names = ["priya", "rahul"];
+names.map(n => n.toUpperCase()); // ❌ result thrown away!
+let upper = names.map(n => n.toUpperCase()); // ✅ store the result

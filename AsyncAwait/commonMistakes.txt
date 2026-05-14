@@ -1,0 +1,62 @@
+//Common Mistakes — Async/Await
+
+// ❌ Mistake 1: Using await outside async function
+function myTest() {
+    await page.goto("https://myapp.com"); // SyntaxError!
+}
+// ✅ Fix — mark function as async
+async function myTest() {
+    await page.goto("https://myapp.com"); // ✅
+}
+
+// ❌ Mistake 2: Forgetting await — test runs before page loads
+async function myTest() {
+    page.goto("https://myapp.com");    // no await — moves on immediately!
+    page.click("#login-btn");          // page not loaded — crash!
+}
+// ✅ Fix
+async function myTest() {
+    await page.goto("https://myapp.com");    // wait for navigation
+    await page.click("#login-btn");          // now it's safe ✅
+}
+
+// ❌ Mistake 3: Not handling errors
+async function myTest() {
+    await page.click("#btn-that-doesnt-exist"); // crashes entire test!
+}
+// ✅ Fix — wrap in try/catch
+async function myTest() {
+    try {
+        await page.click("#btn-that-doesnt-exist");
+    } catch (error) {
+        console.log(`Element not found: ${error.message}`);
+    }
+}
+
+// ❌ Mistake 4: Unnecessary sequential when parallel is possible
+async function loadTestData() {
+    let users    = await getUsers();     // 2 seconds
+    let products = await getProducts();  // 2 seconds
+    let orders   = await getOrders();    // 2 seconds
+    // Total: 6 seconds — but they don't depend on each other!
+}
+// ✅ Fix — run in parallel
+async function loadTestData() {
+    let [users, products, orders] = await Promise.all([
+        getUsers(),     //
+        getProducts(),  // all run simultaneously — 2 seconds total!
+        getOrders()     //
+    ]);
+}
+
+// ❌ Mistake 5: Thinking async functions return values directly
+async function getText() {
+    return "Hello";
+}
+let text = getText();
+console.log(text); // Promise { 'Hello' } ← not "Hello"!
+
+// ✅ Fix — await the async function
+let text = await getText(); // "Hello" ✅
+// OR use .then()
+getText().then(text => console.log(text));

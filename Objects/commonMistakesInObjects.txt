@@ -1,0 +1,41 @@
+/**
+Common Mistakes — Objects
+/
+
+// ❌ Mistake 1: Accessing non-existent nested property — crashes!
+let config = { browser: { name: "Chrome" } };
+console.log(config.timeout.navigation); // TypeError: Cannot read properties of undefined
+
+// ✅ Fix — optional chaining
+console.log(config.timeout?.navigation); // undefined ← safe, no crash
+
+// ❌ Mistake 2: Thinking objects copy by value
+let original = { name: "Priya" };
+let copy = original;           // NOT a copy — same reference!
+copy.name = "Rahul";
+console.log(original.name);   // Rahul ← original changed too! 😱
+
+// ✅ Fix — spread to properly copy
+let realCopy = { ...original };
+realCopy.name = "Rahul";
+console.log(original.name);   // Priya ← safe ✅
+
+// ❌ Mistake 3: Using = to compare objects
+let a = { name: "Priya" };
+let b = { name: "Priya" };
+console.log(a === b); // false! Objects compare by reference not value
+
+// ✅ Fix — compare specific properties
+console.log(a.name === b.name); // true ✅
+
+// ❌ Mistake 4: Forgetting comma between properties
+let user = {
+    name: "Priya"   // ← missing comma!
+    role: "admin"   // SyntaxError
+};
+
+// ✅ Fix
+let user = {
+    name: "Priya",
+    role: "admin"
+};

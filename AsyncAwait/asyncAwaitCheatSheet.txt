@@ -1,0 +1,41 @@
+//Summary — Async/Await Cheat Sheet
+
+// DEFINE async function
+async function myFunc() { }
+const myFunc = async () => { };
+
+// AWAIT a promise
+let result = await somePromise;
+await someAsyncFunction();
+
+// ERROR HANDLING
+try {
+    await riskyOperation();
+} catch (error) {
+    console.log(error.message);
+} finally {
+    // always runs
+}
+
+// PARALLEL
+let [a, b, c] = await Promise.all([fn1(), fn2(), fn3()]);
+
+// ALL SETTLE (don't stop on failure)
+let results = await Promise.allSettled([fn1(), fn2(), fn3()]);
+
+// ASYNC IN CLASS
+class MyPage {
+    async doSomething() {
+        await wait(1000);
+        return "done";
+    }
+}
+
+// CALLING ASYNC FUNCTIONS
+// Inside async function:
+let val = await myAsyncFunc();
+
+// At top level:
+myAsyncFunc().then(val => console.log(val));
+// OR
+(async () => { let val = await myAsyncFunc(); })();

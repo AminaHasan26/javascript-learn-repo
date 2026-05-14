@@ -1,0 +1,43 @@
+// Common Mistakes — Functions
+
+// ❌ Mistake 1: Forgetting to call the function
+function printHello() {
+    console.log("Hello");
+}
+// Nothing happens — you defined it but never called it!
+printHello(); // ← you must call it
+
+// ❌ Mistake 2: Forgetting to return
+function getFullName(first, last) {
+    let full = `${first} ${last}`;
+    // forgot return!
+}
+let name = getFullName("Priya", "Sharma");
+console.log(name); // undefined ❌
+
+// ✅ Fix
+function getFullName(first, last) {
+    return `${first} ${last}`; // ✅
+}
+
+// ❌ Mistake 3: Too many things in one function
+function doEverything() {
+    // logs in
+    // searches for product
+    // adds to cart
+    // checks out
+    // validates receipt
+    // logs out
+}
+// Hard to debug, hard to reuse
+
+// ✅ One function — one job
+function login(user, pass) { }
+function searchProduct(name) { }
+function addToCart(productId) { }
+
+// ❌ Mistake 4: Wrong number of arguments
+function greet(name, role) {
+    console.log(`${name} — ${role}`);
+}
+greet("Priya"); // Priya — undefined ← missing second argument

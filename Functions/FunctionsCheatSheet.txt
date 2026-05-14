@@ -1,0 +1,19 @@
+// Declaration
+function name(param1, param2 = "default") {
+    return value;
+}
+
+// Expression
+const name = function(param) { return value; };
+
+// Arrow — multi line
+const name = (param) => {
+    return value;
+};
+
+// Arrow — single line
+const name = (param) => value;
+
+// Call
+name(arg1, arg2);
+let result = name(arg1);

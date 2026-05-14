@@ -1,0 +1,38 @@
+// CREATE
+let arr = [1, 2, 3];
+
+// ACCESS
+arr[0]              // first item
+arr.at(-1)          // last item
+arr.length          // count
+
+// ADD / REMOVE
+arr.push(x)         // add to end
+arr.pop()           // remove from end
+arr.unshift(x)      // add to beginning
+arr.shift()         // remove from beginning
+arr.splice(i,n,x)   // add/remove anywhere
+
+// COPY / MERGE
+arr.slice(1,3)      // copy portion
+[...arr1, ...arr2]  // merge arrays
+
+// SEARCH
+arr.indexOf(x)      // position (-1 if not found)
+arr.includes(x)     // exists? boolean
+arr.find(fn)        // first match
+arr.filter(fn)      // all matches
+
+// TRANSFORM
+arr.map(fn)         // transform all items
+arr.reduce(fn, 0)   // boil down to one value
+arr.sort((a,b)=>a-b)// sort numbers
+arr.reverse()       // flip order
+arr.join(", ")      // array to string
+
+// CHECK
+arr.some(fn)        // at least one matches?
+arr.every(fn)       // all match?
+
+// LOOP
+arr.forEach(fn)     // loop through all

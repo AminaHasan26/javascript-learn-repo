@@ -1,0 +1,72 @@
+//Practice — Error Handling and Modules
+
+Challenge 1 — Custom Error Classes:
+Create three custom error classes:
+
+TimeoutError — element didn't appear within timeout
+ValidationError — form validation failed
+NetworkError — API call or navigation failed
+
+Each should store: message, testName, timestamp.
+Write a function simulateTest(type) that throws different errors based on type. Handle each differently in try/catch.
+
+Challenge 2 — Retry Mechanism:
+Write a retryOperation(fn, maxRetries, delayMs) function that:
+
+Retries the function up to maxRetries times
+Waits delayMs between attempts
+Logs each attempt with attempt number
+Returns the result if successful
+Throws final error with attempt count if all fail
+
+Test it with a function that randomly fails 70% of the time.
+
+Challenge 3 — Module Design:
+Design (write the code for) these three module files:
+config.js — export:
+
+environments object with dev/staging/prod URLs
+timeouts object
+defaultBrowser string
+getEnvUrl(env) function
+
+userData.js — export:
+
+validUsers array of user objects
+invalidUsers array of invalid credential scenarios
+generateRandomUser() function
+
+reportUtils.js — export:
+
+formatResult(test) function
+printReport(results) function
+getStats(results) function returning { passed, failed, rate, duration }
+
+
+Challenge 4 — Full Error Handling Flow:
+Write an async runTestSuite(tests) function that:
+
+Accepts array of test objects with name and fn (async function)
+Runs each test in try/catch
+Retries failed tests once before marking as failed
+In finally — always logs completion
+Collects all results even when tests fail
+Prints formatted report at end
+
+javascriptlet suite = [
+    { name: "Login Test",    fn: async () => { /* simulate pass */ } },
+    { name: "Checkout Test", fn: async () => { throw new Error("Timeout") } },
+    { name: "Search Test",   fn: async () => { /* simulate pass */ } },
+    { name: "Payment Test",  fn: async () => { throw new Error("Not found") } }
+];
+
+Challenge 5 — The Complete Picture:
+Design a mini framework structure with these files and write the content for each:
+mini-framework/
+├── config/config.js
+├── data/testData.js
+├── helpers/utils.js
+├── pages/BasePage.js
+├── pages/LoginPage.js
+└── tests/loginTest.js
+loginTest.js should import from ALL other files and simulate a complete login test flow with proper error handling and retry logic.
